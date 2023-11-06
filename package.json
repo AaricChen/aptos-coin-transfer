@@ -1,6 +1,6 @@
 {
   "name": "ts-cli-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template for create typescript command line.",
   "main": "bin/src/index.js",
   "bin": "./bin/src/index.js",
