@@ -1,7 +1,7 @@
 {
-  "name": "ts-cli-template",
-  "version": "1.0.1",
-  "description": "Template for create typescript command line.",
+  "name": "aptos-faucet",
+  "version": "2.0.0",
+  "description": "Faucet USDT and BTC to your Aptos testnet account.",
   "main": "bin/src/index.js",
   "bin": "./bin/src/index.js",
   "files": [
@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "aaricchen@gmail.com",
-  "repository": "https://github.com/AaricChen/ts-cli-template",
+  "repository": "https://github.com/AaricChen/aptos-faucet",
   "license": "MIT",
   "dependencies": {
     "aptos": "^1.20.0",
