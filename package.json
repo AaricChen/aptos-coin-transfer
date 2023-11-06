@@ -18,6 +18,8 @@
   "repository": "https://github.com/AaricChen/ts-cli-template",
   "license": "MIT",
   "dependencies": {
+    "aptos": "^1.20.0",
+    "bignumber.js": "^9.1.2",
     "commander": "^11.1.0",
     "figlet": "^1.7.0"
   },
