@@ -5,6 +5,8 @@ import { APTOS_COIN, AptosAccount, AptosClient, HexString } from "aptos";
 import BigNumber from "bignumber.js";
 import { Command } from "commander";
 import { textSync } from "figlet";
+import fs from "fs";
+import { parse } from "yaml";
 import { description, name, version } from "../package.json";
 
 interface EntryFunctionPayload {
@@ -18,8 +20,7 @@ const NODE_URL = "https://fullnode.testnet.aptoslabs.com";
 const app = new Command()
   .version(version)
   .description(description)
-  .description("Faucet USDT and BTC on Aptos testnet.")
-  .requiredOption("-k, --private-key <value>", "Your wallet private key")
+  .option("-k, --private-key <value>", "Your wallet private key")
   .option("-n, --number <value>", "Faucet count between 1-3", "1")
   .option(
     "-c, --contract <value>",
@@ -82,7 +83,6 @@ const faucet = async () => {
   console.log(textSync(name));
   console.log(version);
   console.log(description);
-
   const faucetCount = Number(options.number);
   const faucetContract = HexString.ensure(options.contract).hex();
 
@@ -90,9 +90,25 @@ const faucet = async () => {
     app.error("Invalid faucet count");
   }
 
+  let privateKey = options.privateKey;
+
+  if (!privateKey) {
+    // find private key from aptos config file
+    try {
+      const config = parse(fs.readFileSync(".aptos/config.yaml", "utf-8"));
+      privateKey = config?.profiles?.default?.private_key;
+    } catch (err) {
+      throw Error("Can't read account private key");
+    }
+  }
+
+  if (!privateKey) {
+    throw Error("No private key");
+  }
+
   const client = new AptosClient(NODE_URL);
   const mainAccount = new AptosAccount(
-    HexString.ensure(options.privateKey).toUint8Array()
+    HexString.ensure(privateKey).toUint8Array()
   );
   await printBalanceInfo(client, mainAccount, faucetContract);
   for (let index = 0; index < faucetCount; index++) {

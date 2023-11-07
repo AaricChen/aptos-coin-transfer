@@ -1,7 +1,7 @@
 {
   "name": "aptos-faucet",
   "version": "2.0.1",
-  "description": "Faucet USDT and BTC to your Aptos testnet account.",
+  "description": "Faucet USDT and BTC on Aptos testnet. You can use aptos cli to init your account config.",
   "main": "bin/src/index.js",
   "bin": "./bin/src/index.js",
   "files": [
@@ -21,7 +21,8 @@
     "aptos": "^1.20.0",
     "bignumber.js": "^9.1.2",
     "commander": "^11.1.0",
-    "figlet": "^1.7.0"
+    "figlet": "^1.7.0",
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.7",
