@@ -1,6 +1,6 @@
 {
   "name": "aptos-faucet",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Faucet USDT and BTC on Aptos testnet. You can use aptos cli to init your account config.",
   "main": "bin/src/index.js",
   "bin": "./bin/src/index.js",
