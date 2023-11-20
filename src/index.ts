@@ -86,7 +86,7 @@ const faucet = async () => {
   const faucetCount = Number(options.number);
   const faucetContract = HexString.ensure(options.contract).hex();
 
-  if (isNaN(faucetCount) || faucetCount < 0 || faucetCount > 10) {
+  if (isNaN(faucetCount) || faucetCount < 0 || faucetCount > 1000) {
     app.error("Invalid faucet count");
   }
 
