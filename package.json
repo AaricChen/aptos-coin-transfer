@@ -1,6 +1,6 @@
 {
   "name": "aptos-coin-transfer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Batch transfer coin to target addresses.",
   "main": "bin/src/index.js",
   "bin": "./bin/src/index.js",
